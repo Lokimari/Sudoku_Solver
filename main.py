@@ -93,9 +93,15 @@ def test_3x3_box(board_data):
     print(f"Box Data for box {box}: {box_data}")
 
 def main():
-    display()
+    board_data = create_board_array()
+    board_data = set_sudoku_values(board_data)
+
+    # test_rows(board_data)
+    # test_columns(board_data)
+    test_3x3_box(board_data)
+
+    display_board(board_data)
 
 
 if __name__ == "__main__":
     main()
-
