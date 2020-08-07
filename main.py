@@ -1,4 +1,4 @@
-# Create Game Board
+import random
 
 def create_board_array():
     sudoku_board = []
