@@ -1,12 +1,12 @@
 # Create Game Board
 
-def create_display():
-    sudoku_row = []
+def create_board_array():
+    sudoku_board = []
 
-    for space in range(0, 9):
-        sudoku_row.append([None for x in range(0, 9)])
+    for spot in range(0, 9):
+        sudoku_board.append([None for spot in range(0, 9)])
 
-    return sudoku_row
+    return sudoku_board
 
 def display():
     sudoku_board = create_display()
