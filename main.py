@@ -66,16 +66,7 @@ def test_3x3_box(board_data):
 
     box_data = []
 
-    box = 7
-
-    if box == 1 or box == 4 or box == 7:
-        y_range = [0, 1, 2]
-
-    elif box == 2 or box == 5 or box == 8:
-        y_range = [3, 4, 5]
-
-    elif box == 3 or box == 6 or box == 9:
-        y_range = [6, 7, 8]
+    x_range, y_range = get_ranges(box)
 
     print(f"y_range: {y_range}")
 
