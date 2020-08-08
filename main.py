@@ -24,7 +24,7 @@ def display_board(board_data):
 
 def set_sudoku_values(board_data):
     for row in range(len(board_data)):
-        sudoku_nums = [num for num in range(1, 10)]
+        sudoku_nums = {num for num in range(1, 10)}
         for tile in range(len(board_data)):
             try:
                 rand_num = random.randint(min(sudoku_nums), max(sudoku_nums))
