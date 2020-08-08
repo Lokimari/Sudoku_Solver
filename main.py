@@ -121,7 +121,7 @@ def remove_dupes_in_column(board_data, column):
 
         for num in range(len(board_data[column_to_fix])):
             if current_num == board_data[num][column_to_fix] and tile != num:
-                board_data[num][column_to_fix] = "_"
+                board_data[num][column_to_fix] = 0
 
 def remove_dupes_in_row(board_data, row):
     row_to_fix = row
@@ -131,7 +131,7 @@ def remove_dupes_in_row(board_data, row):
 
         for num in range(len(board_data[row_to_fix])):
             if current_num == board_data[row_to_fix][num] and tile != num:
-                board_data[row_to_fix][num] = "_"
+                board_data[row_to_fix][num] = 0
 
 def remove_dupes_in_box(board_data, box):
     x_range, y_range = get_ranges(box)
@@ -143,7 +143,7 @@ def remove_dupes_in_box(board_data, box):
             for x_num in x_range:
                 for y_num in y_range:
                     if current_num == board_data[x_num][y_num] and (x != x_num and y != y_num):
-                        board_data[x_num][y_num] = "_"
+                        board_data[x_num][y_num] = 0
 
 def main():
     board_data = create_board_array()
