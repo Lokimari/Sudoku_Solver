@@ -92,6 +92,63 @@ def test_3x3_box(board_data):
 
     print(f"Box Data for box {box}: {box_data}")
 
+def get_ranges(box):
+    x_range = []
+    y_range = []
+    # y_ranges
+    if box == 1 or box == 4 or box == 7:
+        y_range = [0, 1, 2]
+
+    elif box == 2 or box == 5 or box == 8:
+        y_range = [3, 4, 5]
+
+    elif box == 3 or box == 6 or box == 9:
+        y_range = [6, 7, 8]
+
+    # x_ranges
+    if box == 1 or box == 2 or box == 3:
+        x_range = [0, 1, 2]
+
+    elif box == 4 or box == 5 or box == 6:
+        x_range = [3, 4, 5]
+
+    elif box == 7 or box == 8 or box == 9:
+        x_range = [6, 7, 8]
+
+    return x_range, y_range
+
+def remove_dupes_in_column(board_data, column):
+    column_to_fix = column
+
+    for tile in range(len(board_data[column_to_fix])):
+        current_num = board_data[tile][column_to_fix]
+
+        for num in range(len(board_data[column_to_fix])):
+            if current_num == board_data[num][column_to_fix] and tile != num:
+                board_data[num][column_to_fix] = "_"
+
+def remove_dupes_in_row(board_data, row):
+    row_to_fix = row
+
+    for tile in range(len(board_data[row_to_fix])):
+        current_num = board_data[row_to_fix][tile]
+
+        for num in range(len(board_data[row_to_fix])):
+            if current_num == board_data[row_to_fix][num] and tile != num:
+                board_data[row_to_fix][num] = "_"
+
+def remove_dupes_in_box(board_data, box):
+    x_range, y_range = get_ranges(box)
+
+    for x in x_range:
+        for y in y_range:
+            current_num = board_data[x][y]
+
+            for x_num in x_range:
+                for y_num in y_range:
+                    if current_num == board_data[x_num][y_num] and (x != x_num and y != y_num):
+                        board_data[x_num][y_num] = "_"
+
 def main():
     board_data = create_board_array()
     board_data = set_sudoku_values(board_data)
@@ -99,6 +156,14 @@ def main():
     # test_rows(board_data)
     # test_columns(board_data)
     test_3x3_box(board_data)
+
+    display_board(board_data)
+    print("############################")
+
+    for num in range(0, 9):
+        remove_dupes_in_column(board_data, num)
+        remove_dupes_in_row(board_data, num)
+        remove_dupes_in_box(board_data, num + 1)
 
     display_board(board_data)
 
