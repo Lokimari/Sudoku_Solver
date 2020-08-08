@@ -9,18 +9,23 @@ def create_board_array():
     return sudoku_board
 
 def display_board(board_data):
-    row_counter = 0
+    board_display = ""
+    for row in range(len(board_data)):
+        this_row = ""
+        for tile in range(len(board_data[row])):
+            if tile == 2 or tile == 5:
+                this_row += str(board_data[row][tile]) + "] ["
+            else:
+                this_row += str(board_data[row][tile])
 
-    for row in board_data:
-        column_counter = 0
+        board_display += "[" + this_row + "]" + "\n"
 
-        if row_counter == 3 or row_counter == 6:
-            print("\n" + str(row))
-
+        if row == 2 or row == 5 or row == 8:
+            board_display += "\n"
         else:
-            print(str(row))
+            pass
 
-        row_counter += 1
+    print(board_display)
 
 def set_sudoku_values(board_data):
     for row in range(len(board_data)):
