@@ -9,14 +9,17 @@ def create_board_array():
     return sudoku_board
 
 def display_board(board_data):
+    print("         Sudoku")
     board_display = ""
     for row in range(len(board_data)):
         this_row = ""
         for tile in range(len(board_data[row])):
             if tile == 2 or tile == 5:
-                this_row += str(board_data[row][tile]) + "] ["
-            else:
+                this_row += " " + str(board_data[row][tile]) + "] ["
+            elif tile == 0 or tile == 3 or tile == 6:
                 this_row += str(board_data[row][tile])
+            else:
+                this_row += " " + str(board_data[row][tile])
 
         board_display += "[" + this_row + "]" + "\n"
 
