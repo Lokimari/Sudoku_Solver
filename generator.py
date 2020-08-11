@@ -179,7 +179,13 @@ def gen_solve(puzzle):
     question = input("Seek others?")
 
 def generator():
-    pass
 
+    while True:
+        puzzle = create_board_array()
+        set_sudoku_values(puzzle)
+
+        display_board(puzzle)
+
+        gen_solve(puzzle)
 
 generator()
