@@ -1,6 +1,6 @@
 # Generate Sudoku Puzzles
 import random
-
+from solver import display_board, solve
 # Initialization #######################################################################################################
 
 def create_board_array():
