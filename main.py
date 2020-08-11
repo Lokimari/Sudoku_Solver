@@ -168,6 +168,44 @@ def remove_dupes_in_box(board_data, box):
                     if current_num == board_data[x_num][y_num] and (x != x_num and y != y_num):
                         board_data[x_num][y_num] = 0
 
+# def assign_row_via_set(board_data, row):
+#     row_set = {1, 2, 3, 4, 5, 6, 7, 8, 9}
+#
+#     for tile in range(len(board_data[row])):
+#         board_data[row][tile] = random.randint(min(row_set), max(row_set))
+
+def solve(board_data, x, y, n):
+    if board_data[x][y] == 0:
+
+        if n not in board_data[x]:
+
+            column_tiles = []
+            for column_tile in range(len(board_data)):
+                column_tiles.append(board_data[column_tile][y])
+
+            if n not in column_tiles:
+                print(f"{n} not in row/column...")
+
+                box = get_box(x, y)
+                x_range, y_range = get_ranges(box)
+
+                box_nums = []
+                for xnum in x_range:
+                    for ynum in y_range:
+                        box_nums.append(board_data[xnum][ynum])
+
+                if n not in box_nums:
+                    print(f"{n} available at {x, y}")
+            else:
+                print(f"{n} not available at {x, y}")
+
+        else:
+            print(f"{n} not available at {x, y}")
+
+    else:
+        print("space occupied...")
+
+
 def main():
     board_data = create_board_array()
     board_data = set_sudoku_values(board_data)
