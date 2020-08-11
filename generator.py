@@ -140,3 +140,9 @@ def remove_dupes_in_box(board_data, box):
                 for y_num in y_range:
                     if current_num == board_data[x_num][y_num] and (x != x_num and y != y_num):
                         board_data[x_num][y_num] = 0
+
+def generator():
+    pass
+
+
+generator()

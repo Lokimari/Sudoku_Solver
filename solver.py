@@ -73,7 +73,10 @@ def solve():
     solution_count += 1
 
 
-solution_count = 0
-display_board(solvable_puzzle)
-solve()
-print(f"{solution_count} total solutions.")
+def solver():
+    display_board(solvable_puzzle)
+    solve()
+    print(f"{solution_count} total solutions.")
+
+
+solver()
