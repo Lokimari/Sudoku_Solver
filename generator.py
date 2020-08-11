@@ -147,6 +147,37 @@ def remove_dupes_in_box(board_data, box):
                     if current_num == board_data[x_num][y_num] and (x != x_num and y != y_num):
                         board_data[x_num][y_num] = 0
 
+
+def possible(puzzle, x, y, n):
+    for i in range(0, 9):
+        if puzzle[x][i] == n:
+            return False
+        if puzzle[i][y] == n:
+            return False
+
+    x0 = (x//3)*3
+    y0 = (y//3)*3
+    for i in range(0, 3):
+        for i2 in range(0, 3):
+            if puzzle[x0 + i][y0 + i2] == n:
+                return False
+    return True
+
+def gen_solve(puzzle):
+    for x in range(9):
+        for y in range(9):
+            if puzzle[x][y] == 0:
+                for n in range(1, 10):
+                    if possible(puzzle, x, y, n):
+                        print(f"{x, y} -> {n}")
+                        puzzle[x][y] = n
+                        gen_solve(puzzle)
+                        puzzle[x][y] = 0
+                return
+
+    display_board(puzzle)
+    question = input("Seek others?")
+
 def generator():
     pass
 
