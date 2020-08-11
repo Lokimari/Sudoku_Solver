@@ -21,6 +21,12 @@ def set_sudoku_values(board_data):
             except ValueError:
                 pass
 
+    for num in range(0, 9):
+        for num2 in range(0, 9):
+            remove_dupes_in_column(board_data, num)
+            remove_dupes_in_row(board_data, num)
+            remove_dupes_in_box(board_data, num + 1)
+
     return board_data
 
 # Tests ################################################################################################################
