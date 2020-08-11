@@ -195,7 +195,8 @@ def solve(board_data, x, y, n):
                         box_nums.append(board_data[xnum][ynum])
 
                 if n not in box_nums:
-                    print(f"{n} available at {x, y}")
+                    print(f"Valid: {n} entered at {x, y}")
+                    board_data[x][y] = n
             else:
                 print(f"{n} not available at {x, y}")
 
