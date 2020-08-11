@@ -1,5 +1,7 @@
+from generator import generator
+
 def main():
-    pass
+    generator()
     # TODO - Create puzzles that are solvable! Perhaps backtracking is required?
 
 
