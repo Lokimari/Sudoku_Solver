@@ -225,6 +225,19 @@ def main():
 
     display_board(board_data)
 
+    while True:
+        try:
+            x = input("please input x, y, and z")
+            y = input()
+            n = input()
+            solve(board_data, int(x), int(y), int(n))
+        except ValueError:
+            pass
+
+        display_board(board_data)
+
+    # TODO - Create puzzles that are solvable! Perhaps backtracking is required?
+
 
 if __name__ == "__main__":
     main()
