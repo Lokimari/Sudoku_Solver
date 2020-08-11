@@ -116,6 +116,26 @@ def get_ranges(box):
 
     return x_range, y_range
 
+def get_box(x, y):
+    if x in range(0, 3) and y in range(0, 3):
+        return 1
+    elif x in range(0, 3) and y in range(3, 6):
+        return 2
+    elif x in range(0, 3) and y in range(6, 9):
+        return 3
+    elif x in range(3, 6) and y in range(0, 3):
+        return 4
+    elif x in range(3, 6) and y in range(3, 6):
+        return 5
+    elif x in range(3, 6) and y in range(6, 9):
+        return 6
+    elif x in range(6, 9) and y in range(0, 3):
+        return 7
+    elif x in range(6, 9) and y in range(3, 6):
+        return 8
+    elif x in range(6, 9) and y in range(6, 9):
+        return 9
+
 def remove_dupes_in_column(board_data, column):
     column_to_fix = column
 
